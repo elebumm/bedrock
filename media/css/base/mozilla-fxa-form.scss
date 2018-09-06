@@ -20,15 +20,15 @@
         @include font-size-level5;
         border-radius: 2px;
         box-sizing: border-box;
-        padding: 0.5em 20px;
-        margin-bottom: 1em;
+        padding: .5em 20px;
         width: 100%;
     }
 
     button.button {
         background: #0060df;
-        border: none;
         border-radius: 2px;
+        border: none;
+        padding: .5em 20px;
         width: 100%;
 
         &:focus,
@@ -68,7 +68,41 @@
         margin: 0 0 1em;
     }
 
-    .disclaimer {
+    .agreement {
         @include font-size-small;
+        text-align: center;
+    }
+
+    @supports (display: grid) {
+        .fxa-email-field-container {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-areas:
+                'field'
+                'button'
+                'agree';
+        }
+
+        .field {
+            grid-area: field;
+            margin: 0;
+        }
+
+        .button {
+            grid-area: button;
+        }
+
+        .agreement {
+            grid-area: agree;
+        }
+
+        @media #{$mq-phone-wide} {
+            .fxa-email-field-container {
+                grid-template-columns: 2fr 1fr;
+                grid-template-areas:
+                    'field button'
+                    'agree agree';
+            }
+        }
     }
 }
