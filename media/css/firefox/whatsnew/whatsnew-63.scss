@@ -1,0 +1,137 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+$font-path: '/media/fonts';
+$image-path: '/media/protocol/img';
+
+@import '../../../protocol/css/includes/lib';
+@import '../../../protocol/css/components/button';
+@import '../../../protocol/css/components/hero';
+@import '../../../protocol/css/components/feature-card';
+
+.page-header {
+    background-color: $color-white;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    position: relative;
+    text-align: center;
+
+    .up-to-date-messaging {
+        @include text-display-sm;
+        display: none;
+        font-weight: normal;
+        margin: 1em 0;
+        padding: 0 $spacing-md;
+        width: calc(100% - 45px);
+
+        &:before {
+            background: url('/media/img/firefox/whatsnew/icon-green-check.svg') center left no-repeat;
+            background-size: 25px 25px;
+            content: '';
+            display: inline-block;
+            height: 25px;
+            margin: 0 10px 0 0;
+            vertical-align: middle;
+            width: 25px;
+        }
+    }
+
+    .logo-moz {
+        display: none;
+    }
+
+    &.show-up-to-date-message .up-to-date-messaging {
+        display: block;
+    }
+
+    @media #{$mq-md} {
+        .logo-fx {
+            @include bidi(((float, left, right),));
+        }
+
+        .logo-moz {
+            @include bidi(((float, right, left),));
+            margin: $spacing-md 0;
+        }
+
+        .logo-moz {
+            display: block;
+        }
+
+        &.show-up-to-date-message .page-header-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            .logo-fx,
+            .logo-moz {
+                float: none;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.fxa-sticky-signup {
+    background: $color-blue-60;
+    color: $color-white;
+
+    a:link,
+    a:visited {
+        color: inherit;
+    }
+
+    h2 {
+        @include text-display-sm;
+    }
+
+    .fxa-email-form-intro {
+        @include visually-hidden;
+    }
+
+    @media #{$mq-lg} {
+        @include clearfix;
+        left: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+
+        h2 {
+            float: left;
+            max-width: 50%;
+        }
+        .fxa-email-form {
+            float: right;
+            max-width: 50%;
+
+            .agreement {
+                @include text-body-sm;
+            }
+        }
+
+        .fxa-email-field-container {
+            position: relative;
+
+            .field {
+                margin-bottom: 0;
+                float: left;
+                width: calc(100% - (200px + #{$spacing-lg}));
+
+                input[type="email"] {
+                    width: 100%;
+                }
+            }
+
+            .mzp-c-button {
+                float: right;
+                width: 200px;
+                margin-top: .25em;
+            }
+        }
+    }
+}
+
+.feature-content-blocking {
+    background: $color-blue-50;
+}
