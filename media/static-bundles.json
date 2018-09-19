@@ -566,6 +566,12 @@
     },
     {
       "files": [
+        "css/firefox/whatsnew/whatsnew-63.scss"
+      ],
+      "name": "firefox_whatsnew_63"
+    },
+    {
+      "files": [
         "css/mozorg/commit-access-policy.less"
       ],
       "name": "commit-access-policy"
@@ -972,6 +978,16 @@
         "js/firefox/whatsnew/whatsnew-62-init.js"
       ],
       "name": "firefox_whatsnew_62"
+    },
+    {
+      "files": [
+        "js/base/mozilla-fxa.js",
+        "js/base/mozilla-fxa-init.js",
+        "js/base/mozilla-fxa-form.js",
+        "js/firefox/whatsnew/whatsnew-63.js",
+        "js/firefox/whatsnew/whatsnew-63-init.js"
+      ],
+      "name": "firefox_whatsnew_63"
     },
     {
       "files": [

@@ -1,0 +1,131 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
+
+{% from "macros.html" import fxa_email_form with context %}
+
+{% extends "firefox/base-protocol.html" %}
+
+{% block page_title %}{{ _('See what’s new with Firefox') }}{% endblock %}
+
+{% block page_css %}
+  {{ css_bundle('firefox_whatsnew_63') }}
+{% endblock %}
+
+{% block site_header %}{% endblock %}
+
+{% block content %}
+<main class="mzp-t-firefox">
+  <header class="page-header">
+    <div class="mzp-l-content page-header-inner">
+      {{ high_res_img('logos/firefox/logo-quantum-wordmark-large.png', {'alt': 'Firefox', 'width': '147', 'height': '55', 'class': 'logo-fx'}) }}
+
+      <h1 class="up-to-date-messaging">{{ _('Congrats! You’re using the latest version of Firefox.') }}</h1>
+
+      <img src="{{ static('img/logos/mozilla/wordmark-dark.svg') }}" alt="Mozilla" width="112" height="32" class="logo-moz">
+    </div>
+  </header>
+  <section class="fxa-sticky-signup">
+    <div class="mzp-l-content">
+      <h2>{{ _('Get your Firefox Account') }}</h2>
+
+      {{ fxa_email_form(
+          entrypoint='whatsnew',
+          button_text=_('Sign Up Now'),
+          button_class='mzp-c-button',
+          utm_source='whatsnew',
+          utm_params={'campaign': 'fxa-embedded-form', 'content': 'whatsnew', 'medium': 'referral'}) }}
+    </div>
+  </section>
+  <section class="mzp-c-hero mzp-has-image mzp-l-reverse">
+    <div class="mzp-l-content">
+      <div class="mzp-c-hero-body">
+        <h2 class="mzp-c-hero-title">{{ _('It shouldn’t be hard to own your life online.') }}</h2>
+        <div class="mzp-c-hero-desc">
+          <p>{{ _('That’s why Firefox gives more power to you with every update.') }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="mzp-c-hero">
+      <div class="mzp-l-content">
+        <div class="mzp-c-hero-body">
+          <h2 class="mzp-c-hero-title">{{ _('Here’s What’s New') }}</h2>
+          <div class="mzp-c-hero-desc">
+            <p>
+            {% trans %}
+              Meet the latest version of Firefox. And sign up for a better internet all
+              around with a free Firefox Account.
+            {% endtrans %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mzp-l-content">
+      <section class="mzp-c-card-feature mzp-has-aspect-16-9 mzp-l-card-feature-left-half">
+        <div class="mzp-c-card-feature-media-wrapper">
+          <div class="mzp-c-card-feature-media">
+          </div>
+        </div>
+        <div class="mzp-c-card-feature-content">
+          <div class="mzp-c-card-feature-content-container">
+              <h3 class="mzp-c-card-feature-title">{{ _('Built-In Tracking Controls') }}</h3>
+              <p class="mzp-c-card-feature-desc">
+              {% trans %}
+                When you see the shield in the address bar, Firefox is blocking ads and unruly
+                scripts from following you around the web. Select the icon to dial in the options.
+              {% endtrans %}
+              </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="feature-content-blocking">
+      <div class=" mzp-l-content mzp-t-dark">
+        <section class="mzp-c-card-feature mzp-has-aspect-16-9 mzp-l-card-feature-right-half">
+          <div class="mzp-c-card-feature-media-wrapper">
+            <div class="mzp-c-card-feature-media">
+            </div>
+          </div>
+          <div class="mzp-c-card-feature-content">
+            <div class="mzp-c-card-feature-content-container">
+                <h3 class="mzp-c-card-feature-title">{{ _('Better Content Blocking = Faster Internet') }}</h3>
+                <p class="mzp-c-card-feature-desc">
+                {% trans %}
+                  Because ad trackers can do more than annoy you – they add data bloat that slows you down.
+                {% endtrans %}
+                </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="mzp-l-content">
+      <section class="mzp-c-card-feature mzp-has-aspect-16-9 mzp-l-card-feature-left-half">
+        <div class="mzp-c-card-feature-media-wrapper">
+          <div class="mzp-c-card-feature-media">
+          </div>
+        </div>
+        <div class="mzp-c-card-feature-content">
+          <div class="mzp-c-card-feature-content-container">
+              <h3 class="mzp-c-card-feature-title">{{ _('Secure Syncing Across Devices') }}</h3>
+              <p class="mzp-c-card-feature-desc">
+              {% trans %}
+                With a Firefox Account, your data is secured with end-to-end encryption.
+                Even we can’t see what you save, sync and send.
+              {% endtrans %}
+              </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block js %}
+  {{ js_bundle('firefox_whatsnew_63') }}
+{% endblock %}
+
